@@ -86,10 +86,10 @@ jobs:
           mv ~/ndk_temp/*/* ~/ndk_temp
       - name: Setup rust toolchains
         run: |
-          rustup update
           rustup default nightly
           rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android i686-linux-android
           rustup component add rust-src
+          rustup update
       - uses: Swatinem/rust-cache@v2
       - name: Install cargo ndk
         run: cargo install cargo-ndk
