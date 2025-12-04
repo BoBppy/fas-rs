@@ -14,14 +14,3 @@
 //
 // You should have received a copy of the GNU General Public License along
 // with fas-rs. If not, see <https://www.gnu.org/licenses/>.
-
-use std::process::Command;
-
-pub fn setprop<S>(k: S, v: S)
-where
-    S: AsRef<str>,
-{
-    let key = k.as_ref();
-    let value = v.as_ref();
-    let _ = Command::new("setprop").args([key, value]).spawn();
-}
