@@ -22,7 +22,7 @@ use log::{debug, error, info};
 use mlua::Lua;
 
 use super::{
-    EXTENSION_PATH,
+    EXTENSIONS_PATH,
     api::{Api, helper_funs},
 };
 use crate::framework::error::Result;
@@ -36,7 +36,7 @@ pub fn thread(rx: &Receiver<Box<dyn Api>>) {
     inotify
         .watches()
         .add(
-            EXTENSION_PATH,
+            EXTENSIONS_PATH,
             WatchMask::CLOSE_WRITE | WatchMask::CREATE | WatchMask::DELETE,
         )
         .unwrap();
@@ -59,7 +59,7 @@ fn need_update(inotify: &mut Inotify) -> bool {
 fn load_extensions() -> Result<ExtensionMap> {
     let mut map: ExtensionMap = HashMap::new();
 
-    for file in fs::read_dir(EXTENSION_PATH)?
+    for file in fs::read_dir(EXTENSIONS_PATH)?
         .map(std::result::Result::unwrap)
         .filter(|f| f.file_type().unwrap().is_file() && f.path().extension().unwrap() == "lua")
     {
