@@ -27,7 +27,7 @@ use std::{
 use crate::framework::error::Result;
 pub use api::Api;
 
-const EXTENSION_PATH: &str = "/data/adb/fas-rs/extension";
+const EXTENSIONS_PATH: &str = "/data/adb/fas-rs/extension";
 
 pub struct Extension {
     sx: SyncSender<Box<dyn Api>>,
@@ -35,7 +35,7 @@ pub struct Extension {
 
 impl Extension {
     pub fn init() -> Result<Self> {
-        let _ = fs::create_dir_all(EXTENSION_PATH);
+        let _ = fs::create_dir_all(EXTENSIONS_PATH);
         let (sx, rx) = mpsc::sync_channel(16);
 
         thread::Builder::new()
