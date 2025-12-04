@@ -23,5 +23,5 @@ where
 {
     let key = k.as_ref();
     let value = v.as_ref();
-    let _ = Command::new("setprop").args([key, value]).spawn();
+    // let _ = Command::new("setprop").args([key, value]).spawn();
 }
