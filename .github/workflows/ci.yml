@@ -38,8 +38,8 @@ jobs:
           mv ~/ndk_temp/*/* ~/ndk_temp
       - name: Setup rust toolchains
         run: |
-          rustup toolchain install nightly-2025-11-11
-          rustup default nightly-2025-11-11
+          rustup toolchain install nightly-2024-11-15
+          rustup default nightly-2024-11-15
           rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android i686-linux-android
           rustup component add rust-src
       - uses: Swatinem/rust-cache@v2
@@ -86,8 +86,8 @@ jobs:
           mv ~/ndk_temp/*/* ~/ndk_temp
       - name: Setup rust toolchains
         run: |
-          rustup toolchain install nightly-2025-11-11
-          rustup default nightly-2025-11-11
+          rustup toolchain install nightly-2024-11-15
+          rustup default nightly-2024-11-15
           rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android i686-linux-android
           rustup component add rust-src
       - uses: Swatinem/rust-cache@v2
